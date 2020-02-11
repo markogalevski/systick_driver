@@ -44,6 +44,10 @@
  */
 extern uint32_t SystemCoreClock;
 
+/**
+ * Number of systicks used simple to define the size of the config "table".
+ * Some chips have multiple system timers, though.
+ */
 typedef enum
 {
 	SYSTICK_1,

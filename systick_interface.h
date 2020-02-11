@@ -39,6 +39,9 @@
 
 #include "systick_stm32f411_config.h"
 
+/**
+ * Systick callback type used to send interrupt behaviour functions to the irq handler
+ */
 typedef void (*systick_callback_t) (void);
 
 void systick_init(systick_config_t *config);

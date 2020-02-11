@@ -128,7 +128,7 @@ Functions</h2></td></tr>
 <tr class="separator:ab0275b71c7f7a9080dcac8ffc68559c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97fc9935ef263cd958116a6ecdfd835f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="systick__stm32f411_8c.html#a97fc9935ef263cd958116a6ecdfd835f">systick_increment</a> (void)</td></tr>
 <tr class="separator:a97fc9935ef263cd958116a6ecdfd835f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70216cf1d168d9c2239c87878745a631"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="systick__stm32f411_8c.html#a70216cf1d168d9c2239c87878745a631">systick_callback_register</a> (systick_callback_t callback_func)</td></tr>
+<tr class="memitem:a70216cf1d168d9c2239c87878745a631"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="systick__stm32f411_8c.html#a70216cf1d168d9c2239c87878745a631">systick_callback_register</a> (<a class="el" href="systick__interface_8h.html#a90b4dba6415b72ebd50fc0540dcd2ddf">systick_callback_t</a> callback_func)</td></tr>
 <tr class="separator:a70216cf1d168d9c2239c87878745a631"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e3818296c4ed279cc0f2967bcdddcee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="systick__stm32f411_8c.html#a8e3818296c4ed279cc0f2967bcdddcee">systick_irq_handler</a> (void)</td></tr>
 <tr class="separator:a8e3818296c4ed279cc0f2967bcdddcee"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,7 +139,7 @@ Variables</h2></td></tr>
 <tr class="separator:ada9acaf0f8242968fb35d628ac9dda27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5973e7102782a9936a5e0d1417863675"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="systick__stm32f411_8c.html#a5973e7102782a9936a5e0d1417863675">tick_freq</a></td></tr>
 <tr class="separator:a5973e7102782a9936a5e0d1417863675"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66446d53cda21db96cb43c21d7ddbbf8"><td class="memItemLeft" align="right" valign="top">static systick_callback_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="systick__stm32f411_8c.html#a66446d53cda21db96cb43c21d7ddbbf8">systick_callback</a> = <a class="el" href="systick__stm32f411_8c.html#a97fc9935ef263cd958116a6ecdfd835f">systick_increment</a></td></tr>
+<tr class="memitem:a66446d53cda21db96cb43c21d7ddbbf8"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="systick__interface_8h.html#a90b4dba6415b72ebd50fc0540dcd2ddf">systick_callback_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="systick__stm32f411_8c.html#a66446d53cda21db96cb43c21d7ddbbf8">systick_callback</a> = <a class="el" href="systick__stm32f411_8c.html#a97fc9935ef263cd958116a6ecdfd835f">systick_increment</a></td></tr>
 <tr class="separator:a66446d53cda21db96cb43c21d7ddbbf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -171,7 +171,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void systick_callback_register </td>
           <td>(</td>
-          <td class="paramtype">systick_callback_t&#160;</td>
+          <td class="paramtype"><a class="el" href="systick__interface_8h.html#a90b4dba6415b72ebd50fc0540dcd2ddf">systick_callback_t</a>&#160;</td>
           <td class="paramname"><em>callback_func</em></td><td>)</td>
           <td></td>
         </tr>
@@ -378,7 +378,7 @@ config table
 <p>POST-CONDITION: The systick interrupt is enabled or disabled, as per the input</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">systick_interrupt_t</td><td>Control parameter defining if the interrupt will be activated or deactivated </td></tr>
+    <tr><td class="paramname">interrupt_control</td><td>Control parameter defining if the interrupt will be activated or deactivated </td></tr>
   </table>
   </dd>
 </dl>
@@ -562,7 +562,7 @@ config table
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">systick_callback_t systick_callback = <a class="el" href="systick__stm32f411_8c.html#a97fc9935ef263cd958116a6ecdfd835f">systick_increment</a></td>
+          <td class="memname"><a class="el" href="systick__interface_8h.html#a90b4dba6415b72ebd50fc0540dcd2ddf">systick_callback_t</a> systick_callback = <a class="el" href="systick__stm32f411_8c.html#a97fc9935ef263cd958116a6ecdfd835f">systick_increment</a></td>
         </tr>
       </table>
   </td>

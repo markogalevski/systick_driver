@@ -51,6 +51,7 @@
 
 static volatile uint32_t tick_ms= 0;		/**<Encapsulated tick value */
 static uint32_t tick_freq;					/**<Tick frequency (increment rate) */
+
 /**
  * Callback function which will be dereferenced upon systick interrupts
  * Default value is systick_increment, but can be changed through the callback_register function
@@ -255,7 +256,7 @@ void systick_resume(void)
 *
 *	POST-CONDITION: The systick interrupt is enabled or disabled, as per the input
 *
-*	@param		systick_interrupt_t Control parameter defining if the interrupt will be
+*	@param		interrupt_control Control parameter defining if the interrupt will be
 *				activated or deactivated
 *	@return 	void
 *

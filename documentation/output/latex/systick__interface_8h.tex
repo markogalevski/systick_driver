@@ -6,16 +6,14 @@ General interface covering user accesses to initialise the system wide tick for 
 
 
 {\ttfamily \#include \char`\"{}systick\+\_\+stm32f411\+\_\+config.\+h\char`\"{}}\newline
-Include dependency graph for systick\+\_\+interface.\+h\+:
-\nopagebreak
+Include dependency graph for systick\+\_\+interface.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=232pt]{systick__interface_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -25,8 +23,7 @@ This graph shows which files directly or indirectly include this file\+:
 \subsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{systick__interface_8h_a90b4dba6415b72ebd50fc0540dcd2ddf}\label{systick__interface_8h_a90b4dba6415b72ebd50fc0540dcd2ddf}} 
-typedef void($\ast$ {\bfseries systick\+\_\+callback\+\_\+t}) (void)
+typedef void($\ast$ \hyperlink{systick__interface_8h_a90b4dba6415b72ebd50fc0540dcd2ddf}{systick\+\_\+callback\+\_\+t}) (void)
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -47,7 +44,7 @@ void \hyperlink{systick__interface_8h_ab0275b71c7f7a9080dcac8ffc68559c7}{systick
 \item 
 void \hyperlink{systick__interface_8h_a97fc9935ef263cd958116a6ecdfd835f}{systick\+\_\+increment} (void)
 \item 
-void \hyperlink{systick__interface_8h_a70216cf1d168d9c2239c87878745a631}{systick\+\_\+callback\+\_\+register} (systick\+\_\+callback\+\_\+t callback\+\_\+func)
+void \hyperlink{systick__interface_8h_a70216cf1d168d9c2239c87878745a631}{systick\+\_\+callback\+\_\+register} (\hyperlink{systick__interface_8h_a90b4dba6415b72ebd50fc0540dcd2ddf}{systick\+\_\+callback\+\_\+t} callback\+\_\+func)
 \item 
 void \hyperlink{systick__interface_8h_a8e3818296c4ed279cc0f2967bcdddcee}{systick\+\_\+irq\+\_\+handler} (void)
 \end{DoxyCompactItemize}
@@ -58,12 +55,21 @@ General interface covering user accesses to initialise the system wide tick for 
 
 
 
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{systick__interface_8h_a90b4dba6415b72ebd50fc0540dcd2ddf}\label{systick__interface_8h_a90b4dba6415b72ebd50fc0540dcd2ddf}} 
+\index{systick\+\_\+interface.\+h@{systick\+\_\+interface.\+h}!systick\+\_\+callback\+\_\+t@{systick\+\_\+callback\+\_\+t}}
+\index{systick\+\_\+callback\+\_\+t@{systick\+\_\+callback\+\_\+t}!systick\+\_\+interface.\+h@{systick\+\_\+interface.\+h}}
+\subsubsection{\texorpdfstring{systick\+\_\+callback\+\_\+t}{systick\_callback\_t}}
+{\footnotesize\ttfamily typedef void($\ast$ systick\+\_\+callback\+\_\+t) (void)}
+
+Systick callback type used to send interrupt behaviour functions to the irq handler 
+
 \subsection{Function Documentation}
 \mbox{\Hypertarget{systick__interface_8h_a70216cf1d168d9c2239c87878745a631}\label{systick__interface_8h_a70216cf1d168d9c2239c87878745a631}} 
 \index{systick\+\_\+interface.\+h@{systick\+\_\+interface.\+h}!systick\+\_\+callback\+\_\+register@{systick\+\_\+callback\+\_\+register}}
 \index{systick\+\_\+callback\+\_\+register@{systick\+\_\+callback\+\_\+register}!systick\+\_\+interface.\+h@{systick\+\_\+interface.\+h}}
 \subsubsection{\texorpdfstring{systick\+\_\+callback\+\_\+register()}{systick\_callback\_register()}}
-{\footnotesize\ttfamily void systick\+\_\+callback\+\_\+register (\begin{DoxyParamCaption}\item[{systick\+\_\+callback\+\_\+t}]{callback\+\_\+func }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void systick\+\_\+callback\+\_\+register (\begin{DoxyParamCaption}\item[{\hyperlink{systick__interface_8h_a90b4dba6415b72ebd50fc0540dcd2ddf}{systick\+\_\+callback\+\_\+t}}]{callback\+\_\+func }\end{DoxyParamCaption})}
 
 {\bfseries Description\+:} \begin{DoxyVerb}Registers the callback function as the desired on-interrupt functionality.
 \end{DoxyVerb}
@@ -311,7 +317,7 @@ P\+O\+S\+T-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: The systick interrupt is enabled or di
 
 
 \begin{DoxyParams}{Parameters}
-{\em systick\+\_\+interrupt\+\_\+t} & Control parameter defining if the interrupt will be activated or deactivated \\
+{\em interrupt\+\_\+control} & Control parameter defining if the interrupt will be activated or deactivated \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

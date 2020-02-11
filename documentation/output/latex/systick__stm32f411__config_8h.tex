@@ -6,16 +6,14 @@ Chip specific header containing all relevant enums and structs to configure the 
 
 
 {\ttfamily \#include $<$stdint.\+h$>$}\newline
-Include dependency graph for systick\+\_\+stm32f411\+\_\+config.\+h\+:
-\nopagebreak
+Include dependency graph for systick\+\_\+stm32f411\+\_\+config.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=232pt]{systick__stm32f411__config_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -30,8 +28,7 @@ struct \hyperlink{structsystick__config__t}{systick\+\_\+config\+\_\+t}
 \subsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{systick__stm32f411__config_8h_a13339cd298c9dda78016a52890c456f4}\label{systick__stm32f411__config_8h_a13339cd298c9dda78016a52890c456f4}} 
-enum {\bfseries systick\+\_\+t} \{ {\bfseries S\+Y\+S\+T\+I\+C\+K\+\_\+1}, 
+enum \hyperlink{systick__stm32f411__config_8h_a13339cd298c9dda78016a52890c456f4}{systick\+\_\+t} \{ {\bfseries S\+Y\+S\+T\+I\+C\+K\+\_\+1}, 
 {\bfseries N\+U\+M\+\_\+\+S\+Y\+S\+T\+I\+C\+KS}
  \}
 \item 
@@ -83,7 +80,13 @@ Contains options to enable or disable the systick. Note that a disabled systick 
 \subsubsection{\texorpdfstring{systick\+\_\+interrupt\+\_\+t}{systick\_interrupt\_t}}
 {\footnotesize\ttfamily enum \hyperlink{systick__stm32f411__config_8h_a82589cfda6cc55b21d80e5e3f47b69d9}{systick\+\_\+interrupt\+\_\+t}}
 
-Enables or disables the systick interrupt. The systick should be enabled to allow updating of the source-\/file scoped timer variable every x ms. 
+Enables or disables the systick interrupt. The systick should be enabled to allow updating of the source-\/file scoped timer variable every x ms. \mbox{\Hypertarget{systick__stm32f411__config_8h_a13339cd298c9dda78016a52890c456f4}\label{systick__stm32f411__config_8h_a13339cd298c9dda78016a52890c456f4}} 
+\index{systick\+\_\+stm32f411\+\_\+config.\+h@{systick\+\_\+stm32f411\+\_\+config.\+h}!systick\+\_\+t@{systick\+\_\+t}}
+\index{systick\+\_\+t@{systick\+\_\+t}!systick\+\_\+stm32f411\+\_\+config.\+h@{systick\+\_\+stm32f411\+\_\+config.\+h}}
+\subsubsection{\texorpdfstring{systick\+\_\+t}{systick\_t}}
+{\footnotesize\ttfamily enum \hyperlink{systick__stm32f411__config_8h_a13339cd298c9dda78016a52890c456f4}{systick\+\_\+t}}
+
+Number of systicks used simple to define the size of the config \char`\"{}table\char`\"{}. Some chips have multiple system timers, though. 
 
 \subsection{Function Documentation}
 \mbox{\Hypertarget{systick__stm32f411__config_8h_a736aba702662d732de33f92b1fef7ad0}\label{systick__stm32f411__config_8h_a736aba702662d732de33f92b1fef7ad0}} 
