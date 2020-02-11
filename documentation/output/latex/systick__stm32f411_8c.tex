@@ -1,0 +1,576 @@
+\hypertarget{systick__stm32f411_8c}{}\section{/home/marko/\+Documents/embedded\+\_\+workspace/systick\+\_\+driver/systick\+\_\+stm32f411.c File Reference}
+\label{systick__stm32f411_8c}\index{/home/marko/\+Documents/embedded\+\_\+workspace/systick\+\_\+driver/systick\+\_\+stm32f411.\+c@{/home/marko/\+Documents/embedded\+\_\+workspace/systick\+\_\+driver/systick\+\_\+stm32f411.\+c}}
+
+
+Chip specific implementation of systick control. Many functions are pointers to vendor created routines due to the very specific nature of system clocks and ticks.  
+
+
+{\ttfamily \#include \char`\"{}stm32f411xe.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}core\+\_\+cm4.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}systick\+\_\+interface.\+h\char`\"{}}\newline
+Include dependency graph for systick\+\_\+stm32f411.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{systick__stm32f411_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{systick__stm32f411_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\+U\+LL}~(void $\ast$) 0
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{systick__stm32f411_8c_a05307f714c3701c4b6b396a833f39e92}{systick\+\_\+init} (\hyperlink{structsystick__config__t}{systick\+\_\+config\+\_\+t} $\ast$config)
+\item 
+void \hyperlink{systick__stm32f411_8c_a6fb10375fe1f7fbef5bdbe3ab33a5376}{systick\+\_\+tick\+\_\+freq\+\_\+set} (\hyperlink{structsystick__config__t}{systick\+\_\+config\+\_\+t} $\ast$config)
+\item 
+void \hyperlink{systick__stm32f411_8c_ab315ae133959817580ef089539a7ea3f}{systick\+\_\+pause} (void)
+\item 
+void \hyperlink{systick__stm32f411_8c_abd308166607c7424fb1ae67fb24cba5e}{systick\+\_\+resume} (void)
+\item 
+void \hyperlink{systick__stm32f411_8c_a618b49039ac69306cc271b98af1fb935}{systick\+\_\+interrupt\+\_\+control} (\hyperlink{systick__stm32f411__config_8h_a82589cfda6cc55b21d80e5e3f47b69d9}{systick\+\_\+interrupt\+\_\+t} interrupt\+\_\+control)
+\item 
+uint32\+\_\+t \hyperlink{systick__stm32f411_8c_afdf1221fe41470afc9faf278a871b68c}{systick\+\_\+get\+\_\+tick} (void)
+\item 
+void \hyperlink{systick__stm32f411_8c_ab0275b71c7f7a9080dcac8ffc68559c7}{systick\+\_\+delay} (uint32\+\_\+t delay\+\_\+ms)
+\item 
+void \hyperlink{systick__stm32f411_8c_a97fc9935ef263cd958116a6ecdfd835f}{systick\+\_\+increment} (void)
+\item 
+void \hyperlink{systick__stm32f411_8c_a70216cf1d168d9c2239c87878745a631}{systick\+\_\+callback\+\_\+register} (systick\+\_\+callback\+\_\+t callback\+\_\+func)
+\item 
+void \hyperlink{systick__stm32f411_8c_a8e3818296c4ed279cc0f2967bcdddcee}{systick\+\_\+irq\+\_\+handler} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static volatile uint32\+\_\+t \hyperlink{systick__stm32f411_8c_ada9acaf0f8242968fb35d628ac9dda27}{tick\+\_\+ms} = 0
+\item 
+static uint32\+\_\+t \hyperlink{systick__stm32f411_8c_a5973e7102782a9936a5e0d1417863675}{tick\+\_\+freq}
+\item 
+static systick\+\_\+callback\+\_\+t \hyperlink{systick__stm32f411_8c_a66446d53cda21db96cb43c21d7ddbbf8}{systick\+\_\+callback} = \hyperlink{systick__stm32f411_8c_a97fc9935ef263cd958116a6ecdfd835f}{systick\+\_\+increment}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Chip specific implementation of systick control. Many functions are pointers to vendor created routines due to the very specific nature of system clocks and ticks. 
+
+\begin{DoxyNote}{Note}
+This implementation depends on C\+M\+S\+IS (core\+\_\+cm4.\+h) 
+\end{DoxyNote}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{systick__stm32f411_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}\label{systick__stm32f411_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}} 
+\index{systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}!N\+U\+LL@{N\+U\+LL}}
+\index{N\+U\+LL@{N\+U\+LL}!systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{N\+U\+LL}{NULL}}
+{\footnotesize\ttfamily \#define N\+U\+LL~(void $\ast$) 0}
+
+Definition of N\+U\+LL in case it is not defined elsewhere 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{systick__stm32f411_8c_a70216cf1d168d9c2239c87878745a631}\label{systick__stm32f411_8c_a70216cf1d168d9c2239c87878745a631}} 
+\index{systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}!systick\+\_\+callback\+\_\+register@{systick\+\_\+callback\+\_\+register}}
+\index{systick\+\_\+callback\+\_\+register@{systick\+\_\+callback\+\_\+register}!systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{systick\+\_\+callback\+\_\+register()}{systick\_callback\_register()}}
+{\footnotesize\ttfamily void systick\+\_\+callback\+\_\+register (\begin{DoxyParamCaption}\item[{systick\+\_\+callback\+\_\+t}]{callback\+\_\+func }\end{DoxyParamCaption})}
+
+{\bfseries Description\+:} \begin{DoxyVerb}Registers the callback function as the desired on-interrupt functionality.
+\end{DoxyVerb}
+
+
+P\+R\+E-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: None.
+
+P\+O\+S\+T-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: the systick\+\_\+callback function pointer variable now points to the desired function
+
+
+\begin{DoxyParams}{Parameters}
+{\em callback\+\_\+func} & a function pointer to a void ($\ast$function)(void) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+{\bfseries Example\+:} 
+\begin{DoxyCode}
+\hyperlink{systick__interface_8h_a70216cf1d168d9c2239c87878745a631}{systick\_callback\_register}(&interrupt\_behaviour);
+
+\textcolor{comment}{//the irq handler will now call interrupt\_behaviour}
+  SysTick\_IRQHandler(\textcolor{keywordtype}{void})
+  \{
+      \hyperlink{systick__interface_8h_a8e3818296c4ed279cc0f2967bcdddcee}{systick\_irq\_handler}();
+  \}
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{systick__stm32f411_8c_a8e3818296c4ed279cc0f2967bcdddcee}{systick\+\_\+irq\+\_\+handler}
+\end{DoxySeeAlso}
+~\newline
+{\bfseries  -\/ C\+H\+A\+N\+GE H\+I\+S\+T\+O\+RY -\/ }
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+Date &Software Version &Initials &Description  \\\cline{1-4}
+\end{longtabu}
+~\newline
+~\newline
+ 
+
+ \mbox{\Hypertarget{systick__stm32f411_8c_ab0275b71c7f7a9080dcac8ffc68559c7}\label{systick__stm32f411_8c_ab0275b71c7f7a9080dcac8ffc68559c7}} 
+\index{systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}!systick\+\_\+delay@{systick\+\_\+delay}}
+\index{systick\+\_\+delay@{systick\+\_\+delay}!systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{systick\+\_\+delay()}{systick\_delay()}}
+{\footnotesize\ttfamily void systick\+\_\+delay (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{delay\+\_\+ms }\end{DoxyParamCaption})}
+
+{\bfseries Description\+:} \begin{DoxyVerb}Delays the program for the duration of delay_ms in milliseconds
+\end{DoxyVerb}
+
+
+P\+R\+E-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: None
+
+P\+O\+S\+T-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: delay\+\_\+ms have gone by and the rest of the program will resume
+
+
+\begin{DoxyParams}{Parameters}
+{\em delay\+\_\+ms} & is the length of time the user wishes to way\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+{\bfseries Example\+:} 
+
+
+\begin{DoxyCode}
+\hyperlink{systick__interface_8h_ab0275b71c7f7a9080dcac8ffc68559c7}{systick\_delay}(200);
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{systick__stm32f411_8c_a6fb10375fe1f7fbef5bdbe3ab33a5376}{systick\+\_\+tick\+\_\+freq\+\_\+set} 
+
+\hyperlink{systick__stm32f411_8c_afdf1221fe41470afc9faf278a871b68c}{systick\+\_\+get\+\_\+tick}
+\end{DoxySeeAlso}
+~\newline
+{\bfseries  -\/ C\+H\+A\+N\+GE H\+I\+S\+T\+O\+RY -\/ }
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+Date &Software Version &Initials &Description  \\\cline{1-4}
+\end{longtabu}
+~\newline
+~\newline
+ 
+
+ \mbox{\Hypertarget{systick__stm32f411_8c_afdf1221fe41470afc9faf278a871b68c}\label{systick__stm32f411_8c_afdf1221fe41470afc9faf278a871b68c}} 
+\index{systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}!systick\+\_\+get\+\_\+tick@{systick\+\_\+get\+\_\+tick}}
+\index{systick\+\_\+get\+\_\+tick@{systick\+\_\+get\+\_\+tick}!systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{systick\+\_\+get\+\_\+tick()}{systick\_get\_tick()}}
+{\footnotesize\ttfamily uint32\+\_\+t systick\+\_\+get\+\_\+tick (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+{\bfseries Description\+:} \begin{DoxyVerb}DReturns the current value of the tick_ms variable
+\end{DoxyVerb}
+
+
+P\+R\+E-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: None
+
+P\+O\+S\+T-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: The function has returned the current value of the tick variable.
+
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t the current tick value
+\end{DoxyReturn}
+{\bfseries Example\+:} 
+
+
+\begin{DoxyCode}
+uint32\_t current\_tick = \hyperlink{systick__interface_8h_afdf1221fe41470afc9faf278a871b68c}{systick\_get\_tick}();
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{systick__stm32f411_8c_a6fb10375fe1f7fbef5bdbe3ab33a5376}{systick\+\_\+tick\+\_\+freq\+\_\+set} 
+
+\hyperlink{systick__stm32f411_8c_ab0275b71c7f7a9080dcac8ffc68559c7}{systick\+\_\+delay}
+\end{DoxySeeAlso}
+~\newline
+{\bfseries  -\/ C\+H\+A\+N\+GE H\+I\+S\+T\+O\+RY -\/ }
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+Date &Software Version &Initials &Description  \\\cline{1-4}
+\end{longtabu}
+~\newline
+~\newline
+ 
+
+ \mbox{\Hypertarget{systick__stm32f411_8c_a97fc9935ef263cd958116a6ecdfd835f}\label{systick__stm32f411_8c_a97fc9935ef263cd958116a6ecdfd835f}} 
+\index{systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}!systick\+\_\+increment@{systick\+\_\+increment}}
+\index{systick\+\_\+increment@{systick\+\_\+increment}!systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{systick\+\_\+increment()}{systick\_increment()}}
+{\footnotesize\ttfamily void systick\+\_\+increment (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+{\bfseries Description\+:} \begin{DoxyVerb}Increments the tick by the number of milliseconds between systick register
+overflows. Called within systick_irq_handler.
+\end{DoxyVerb}
+
+
+P\+R\+E-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: None.
+
+P\+O\+S\+T-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: tick\+\_\+ms has incremented by tick\+\_\+freq milliseconds
+
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+{\bfseries Example\+:} 
+\begin{DoxyCode}
+\textcolor{comment}{//By default is called automatically upon SysTick interrupt}
+  SysTick\_IRQHandler(\textcolor{keywordtype}{void})
+  \{
+      \hyperlink{systick__interface_8h_a8e3818296c4ed279cc0f2967bcdddcee}{systick\_irq\_handler}();
+  \}
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{systick__stm32f411_8c_a70216cf1d168d9c2239c87878745a631}{systick\+\_\+callback\+\_\+register} 
+
+\hyperlink{systick__stm32f411_8c_a8e3818296c4ed279cc0f2967bcdddcee}{systick\+\_\+irq\+\_\+handler}
+\end{DoxySeeAlso}
+~\newline
+{\bfseries  -\/ C\+H\+A\+N\+GE H\+I\+S\+T\+O\+RY -\/ }
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+Date &Software Version &Initials &Description  \\\cline{1-4}
+\end{longtabu}
+~\newline
+~\newline
+ 
+
+ \mbox{\Hypertarget{systick__stm32f411_8c_a05307f714c3701c4b6b396a833f39e92}\label{systick__stm32f411_8c_a05307f714c3701c4b6b396a833f39e92}} 
+\index{systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}!systick\+\_\+init@{systick\+\_\+init}}
+\index{systick\+\_\+init@{systick\+\_\+init}!systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{systick\+\_\+init()}{systick\_init()}}
+{\footnotesize\ttfamily void systick\+\_\+init (\begin{DoxyParamCaption}\item[{\hyperlink{structsystick__config__t}{systick\+\_\+config\+\_\+t} $\ast$}]{config }\end{DoxyParamCaption})}
+
+{\bfseries Description\+:} \begin{DoxyVerb}Carries out the initialisation of the the systick based on information in the
+config table
+\end{DoxyVerb}
+
+
+P\+R\+E-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: The clock system (R\+CC) has been initialised. P\+R\+E-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: The desired frequency (tick\+\_\+freq\+\_\+khz) results in a number small enough to fit the 0x\+F\+F\+F\+F\+FF mask P\+R\+E-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: (Soft Assert) the systick is enabled through its config register
+
+P\+O\+S\+T-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: The systick has been configured to count with the desired frequency P\+O\+S\+T-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: The systick interrupt has been enabled (if desired) and its priority set to maximum. P\+O\+S\+T-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: The systick clock source has been set to the desired option
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & a pointer to the systick configuration structure\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+{\bfseries Example\+:} 
+
+
+\begin{DoxyCode}
+\hyperlink{structsystick__config__t}{systick\_config\_t} *tick\_config = \hyperlink{systick__stm32f411__config_8c_a736aba702662d732de33f92b1fef7ad0}{systick\_config\_get}();
+\hyperlink{systick__interface_8h_a05307f714c3701c4b6b396a833f39e92}{systick\_init}(tick\_config);
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{systick__stm32f411__config_8h_a736aba702662d732de33f92b1fef7ad0}{systick\+\_\+config\+\_\+get} 
+
+\hyperlink{systick__stm32f411_8c_a6fb10375fe1f7fbef5bdbe3ab33a5376}{systick\+\_\+tick\+\_\+freq\+\_\+set} 
+
+\hyperlink{systick__stm32f411_8c_ab315ae133959817580ef089539a7ea3f}{systick\+\_\+pause} 
+
+\hyperlink{systick__stm32f411_8c_abd308166607c7424fb1ae67fb24cba5e}{systick\+\_\+resume} 
+
+\hyperlink{systick__stm32f411_8c_a618b49039ac69306cc271b98af1fb935}{systick\+\_\+interrupt\+\_\+control} ~\newline
+{\bfseries  -\/ C\+H\+A\+N\+GE H\+I\+S\+T\+O\+RY -\/ }
+\end{DoxySeeAlso}
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+Date &Software Version &Initials &Description  \\\cline{1-4}
+\end{longtabu}
+~\newline
+~\newline
+ 
+
+ \mbox{\Hypertarget{systick__stm32f411_8c_a618b49039ac69306cc271b98af1fb935}\label{systick__stm32f411_8c_a618b49039ac69306cc271b98af1fb935}} 
+\index{systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}!systick\+\_\+interrupt\+\_\+control@{systick\+\_\+interrupt\+\_\+control}}
+\index{systick\+\_\+interrupt\+\_\+control@{systick\+\_\+interrupt\+\_\+control}!systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{systick\+\_\+interrupt\+\_\+control()}{systick\_interrupt\_control()}}
+{\footnotesize\ttfamily void systick\+\_\+interrupt\+\_\+control (\begin{DoxyParamCaption}\item[{\hyperlink{systick__stm32f411__config_8h_a82589cfda6cc55b21d80e5e3f47b69d9}{systick\+\_\+interrupt\+\_\+t}}]{interrupt\+\_\+control }\end{DoxyParamCaption})}
+
+{\bfseries Description\+:} \begin{DoxyVerb}Enables or disables the systick interrupt
+\end{DoxyVerb}
+
+
+P\+R\+E-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: (Soft Assert) The systick is paused
+
+P\+O\+S\+T-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: The systick interrupt is enabled or disabled, as per the input
+
+
+\begin{DoxyParams}{Parameters}
+{\em systick\+\_\+interrupt\+\_\+t} & Control parameter defining if the interrupt will be activated or deactivated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+{\bfseries Example\+:} 
+
+
+\begin{DoxyCode}
+\hyperlink{systick__interface_8h_ab315ae133959817580ef089539a7ea3f}{systick\_pause}();
+\hyperlink{systick__interface_8h_a618b49039ac69306cc271b98af1fb935}{systick\_interrupt\_control}(SYSTICK\_INT\_ENABLED);
+\hyperlink{systick__interface_8h_abd308166607c7424fb1ae67fb24cba5e}{systick\_resume}();
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{systick__stm32f411_8c_a05307f714c3701c4b6b396a833f39e92}{systick\+\_\+init} 
+
+\hyperlink{systick__stm32f411_8c_a6fb10375fe1f7fbef5bdbe3ab33a5376}{systick\+\_\+tick\+\_\+freq\+\_\+set} 
+
+\hyperlink{systick__stm32f411_8c_ab315ae133959817580ef089539a7ea3f}{systick\+\_\+pause} 
+
+\hyperlink{systick__stm32f411_8c_abd308166607c7424fb1ae67fb24cba5e}{systick\+\_\+resume}
+\end{DoxySeeAlso}
+~\newline
+{\bfseries  -\/ C\+H\+A\+N\+GE H\+I\+S\+T\+O\+RY -\/ }
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+Date &Software Version &Initials &Description  \\\cline{1-4}
+\end{longtabu}
+~\newline
+~\newline
+ 
+
+ \mbox{\Hypertarget{systick__stm32f411_8c_a8e3818296c4ed279cc0f2967bcdddcee}\label{systick__stm32f411_8c_a8e3818296c4ed279cc0f2967bcdddcee}} 
+\index{systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}!systick\+\_\+irq\+\_\+handler@{systick\+\_\+irq\+\_\+handler}}
+\index{systick\+\_\+irq\+\_\+handler@{systick\+\_\+irq\+\_\+handler}!systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{systick\+\_\+irq\+\_\+handler()}{systick\_irq\_handler()}}
+{\footnotesize\ttfamily void systick\+\_\+irq\+\_\+handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+{\bfseries Description\+:} \begin{DoxyVerb}Calls the systick callback function. The default callback is systick_increment.
+\end{DoxyVerb}
+
+
+P\+R\+E-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: The callback function is non-\/\+N\+U\+LL
+
+P\+O\+S\+T-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: the systick\+\_\+callback function is called
+
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+{\bfseries Example\+:} 
+\begin{DoxyCode}
+\hyperlink{systick__interface_8h_a70216cf1d168d9c2239c87878745a631}{systick\_callback\_register}(&interrupt\_behaviour);
+
+\textcolor{comment}{//the irq handler will now call interrupt\_behaviour}
+  SysTick\_IRQHandler(\textcolor{keywordtype}{void})
+  \{
+      \hyperlink{systick__interface_8h_a8e3818296c4ed279cc0f2967bcdddcee}{systick\_irq\_handler}();
+  \}
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{systick__stm32f411_8c_a70216cf1d168d9c2239c87878745a631}{systick\+\_\+callback\+\_\+register} 
+
+\hyperlink{systick__stm32f411_8c_a97fc9935ef263cd958116a6ecdfd835f}{systick\+\_\+increment}
+\end{DoxySeeAlso}
+~\newline
+{\bfseries  -\/ C\+H\+A\+N\+GE H\+I\+S\+T\+O\+RY -\/ }
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+Date &Software Version &Initials &Description  \\\cline{1-4}
+\end{longtabu}
+~\newline
+~\newline
+ 
+
+ \mbox{\Hypertarget{systick__stm32f411_8c_ab315ae133959817580ef089539a7ea3f}\label{systick__stm32f411_8c_ab315ae133959817580ef089539a7ea3f}} 
+\index{systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}!systick\+\_\+pause@{systick\+\_\+pause}}
+\index{systick\+\_\+pause@{systick\+\_\+pause}!systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{systick\+\_\+pause()}{systick\_pause()}}
+{\footnotesize\ttfamily void systick\+\_\+pause (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+{\bfseries Description\+:} \begin{DoxyVerb}Pauses the counting of the systick.
+\end{DoxyVerb}
+
+
+P\+R\+E-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: None
+
+P\+O\+S\+T-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: The systick timer is paused
+
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+{\bfseries Example\+:} 
+
+
+\begin{DoxyCode}
+\hyperlink{systick__interface_8h_ab315ae133959817580ef089539a7ea3f}{systick\_pause}();
+\textcolor{comment}{//... do things....}
+\hyperlink{systick__interface_8h_abd308166607c7424fb1ae67fb24cba5e}{systick\_resume}();
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{systick__stm32f411_8c_a6fb10375fe1f7fbef5bdbe3ab33a5376}{systick\+\_\+tick\+\_\+freq\+\_\+set} 
+
+\hyperlink{systick__stm32f411_8c_abd308166607c7424fb1ae67fb24cba5e}{systick\+\_\+resume}
+\end{DoxySeeAlso}
+~\newline
+{\bfseries  -\/ C\+H\+A\+N\+GE H\+I\+S\+T\+O\+RY -\/ }
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+Date &Software Version &Initials &Description  \\\cline{1-4}
+\end{longtabu}
+~\newline
+~\newline
+ 
+
+ \mbox{\Hypertarget{systick__stm32f411_8c_abd308166607c7424fb1ae67fb24cba5e}\label{systick__stm32f411_8c_abd308166607c7424fb1ae67fb24cba5e}} 
+\index{systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}!systick\+\_\+resume@{systick\+\_\+resume}}
+\index{systick\+\_\+resume@{systick\+\_\+resume}!systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{systick\+\_\+resume()}{systick\_resume()}}
+{\footnotesize\ttfamily void systick\+\_\+resume (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+{\bfseries Description\+:} \begin{DoxyVerb}Resume the counting of the systick.
+\end{DoxyVerb}
+
+
+P\+R\+E-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: None
+
+P\+O\+S\+T-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: The systick timer is running
+
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+{\bfseries Example\+:} 
+
+
+\begin{DoxyCode}
+\hyperlink{systick__interface_8h_ab315ae133959817580ef089539a7ea3f}{systick\_pause}();
+\textcolor{comment}{//... do things....}
+\hyperlink{systick__interface_8h_abd308166607c7424fb1ae67fb24cba5e}{systick\_resume}();
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{systick__stm32f411_8c_a6fb10375fe1f7fbef5bdbe3ab33a5376}{systick\+\_\+tick\+\_\+freq\+\_\+set} 
+
+\hyperlink{systick__stm32f411_8c_ab315ae133959817580ef089539a7ea3f}{systick\+\_\+pause}
+\end{DoxySeeAlso}
+~\newline
+{\bfseries  -\/ C\+H\+A\+N\+GE H\+I\+S\+T\+O\+RY -\/ }
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+Date &Software Version &Initials &Description  \\\cline{1-4}
+\end{longtabu}
+~\newline
+~\newline
+ 
+
+ \mbox{\Hypertarget{systick__stm32f411_8c_a6fb10375fe1f7fbef5bdbe3ab33a5376}\label{systick__stm32f411_8c_a6fb10375fe1f7fbef5bdbe3ab33a5376}} 
+\index{systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}!systick\+\_\+tick\+\_\+freq\+\_\+set@{systick\+\_\+tick\+\_\+freq\+\_\+set}}
+\index{systick\+\_\+tick\+\_\+freq\+\_\+set@{systick\+\_\+tick\+\_\+freq\+\_\+set}!systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{systick\+\_\+tick\+\_\+freq\+\_\+set()}{systick\_tick\_freq\_set()}}
+{\footnotesize\ttfamily void systick\+\_\+tick\+\_\+freq\+\_\+set (\begin{DoxyParamCaption}\item[{\hyperlink{structsystick__config__t}{systick\+\_\+config\+\_\+t} $\ast$}]{config }\end{DoxyParamCaption})}
+
+{\bfseries Description\+:} \begin{DoxyVerb}Sets the frequency of the systick update to the desired value in kHz.
+\end{DoxyVerb}
+
+
+P\+R\+E-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: The desired frequency (tick\+\_\+freq\+\_\+khz) results in a number small enough to fit the 0x\+F\+F\+F\+F\+FF mask P\+R\+E-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: (Soft Assert) the systick is enabled through its config register P\+R\+E-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: (Soft Assert) the systick is paused
+
+P\+O\+S\+T-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: The systick has been configured to count with the desired frequency
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & a pointer to the systick configuration structure\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+{\bfseries Example\+:} 
+
+
+\begin{DoxyCode}
+\hyperlink{structsystick__config__t}{systick\_config\_t} *tick\_config = \hyperlink{systick__stm32f411__config_8c_a736aba702662d732de33f92b1fef7ad0}{systick\_config\_get}();
+\hyperlink{systick__interface_8h_a05307f714c3701c4b6b396a833f39e92}{systick\_init}(tick\_config);
+\textcolor{comment}{//... later ...}
+\hyperlink{systick__interface_8h_ab315ae133959817580ef089539a7ea3f}{systick\_pause}();
+tick\_config->\hyperlink{structsystick__config__t_a5d1767c41ce5e869439e7197fd6a7373}{tick\_freq\_khz} = 5; \textcolor{comment}{//kHz}
+\hyperlink{systick__interface_8h_a6fb10375fe1f7fbef5bdbe3ab33a5376}{systick\_tick\_freq\_set}(tick\_config);
+\hyperlink{systick__interface_8h_abd308166607c7424fb1ae67fb24cba5e}{systick\_resume}();
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{systick__stm32f411_8c_a05307f714c3701c4b6b396a833f39e92}{systick\+\_\+init} 
+
+\hyperlink{systick__stm32f411__config_8h_a736aba702662d732de33f92b1fef7ad0}{systick\+\_\+config\+\_\+get} 
+
+\hyperlink{systick__stm32f411_8c_ab315ae133959817580ef089539a7ea3f}{systick\+\_\+pause} 
+
+\hyperlink{systick__stm32f411_8c_abd308166607c7424fb1ae67fb24cba5e}{systick\+\_\+resume} ~\newline
+{\bfseries  -\/ C\+H\+A\+N\+GE H\+I\+S\+T\+O\+RY -\/ }
+\end{DoxySeeAlso}
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+Date &Software Version &Initials &Description  \\\cline{1-4}
+\end{longtabu}
+~\newline
+~\newline
+ 
+
+ 
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{systick__stm32f411_8c_a66446d53cda21db96cb43c21d7ddbbf8}\label{systick__stm32f411_8c_a66446d53cda21db96cb43c21d7ddbbf8}} 
+\index{systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}!systick\+\_\+callback@{systick\+\_\+callback}}
+\index{systick\+\_\+callback@{systick\+\_\+callback}!systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{systick\+\_\+callback}{systick\_callback}}
+{\footnotesize\ttfamily systick\+\_\+callback\+\_\+t systick\+\_\+callback = \hyperlink{systick__stm32f411_8c_a97fc9935ef263cd958116a6ecdfd835f}{systick\+\_\+increment}\hspace{0.3cm}{\ttfamily [static]}}
+
+Callback function which will be dereferenced upon systick interrupts Default value is systick\+\_\+increment, but can be changed through the callback\+\_\+register function \mbox{\Hypertarget{systick__stm32f411_8c_a5973e7102782a9936a5e0d1417863675}\label{systick__stm32f411_8c_a5973e7102782a9936a5e0d1417863675}} 
+\index{systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}!tick\+\_\+freq@{tick\+\_\+freq}}
+\index{tick\+\_\+freq@{tick\+\_\+freq}!systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{tick\+\_\+freq}{tick\_freq}}
+{\footnotesize\ttfamily uint32\+\_\+t tick\+\_\+freq\hspace{0.3cm}{\ttfamily [static]}}
+
+Tick frequency (increment rate) \mbox{\Hypertarget{systick__stm32f411_8c_ada9acaf0f8242968fb35d628ac9dda27}\label{systick__stm32f411_8c_ada9acaf0f8242968fb35d628ac9dda27}} 
+\index{systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}!tick\+\_\+ms@{tick\+\_\+ms}}
+\index{tick\+\_\+ms@{tick\+\_\+ms}!systick\+\_\+stm32f411.\+c@{systick\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{tick\+\_\+ms}{tick\_ms}}
+{\footnotesize\ttfamily volatile uint32\+\_\+t tick\+\_\+ms = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+Encapsulated tick value 

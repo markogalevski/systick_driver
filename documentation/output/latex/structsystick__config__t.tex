@@ -1,0 +1,52 @@
+\hypertarget{structsystick__config__t}{}\section{systick\+\_\+config\+\_\+t Struct Reference}
+\label{structsystick__config__t}\index{systick\+\_\+config\+\_\+t@{systick\+\_\+config\+\_\+t}}
+
+
+{\ttfamily \#include $<$systick\+\_\+stm32f411\+\_\+config.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{systick__stm32f411__config_8h_a54abff3d12292257e357d04094ebc415}{systick\+\_\+enabled\+\_\+t} \hyperlink{structsystick__config__t_a072e52389584956edd057c591c1c7cd8}{enable\+\_\+systick}
+\item 
+uint32\+\_\+t \hyperlink{structsystick__config__t_a5d1767c41ce5e869439e7197fd6a7373}{tick\+\_\+freq\+\_\+khz}
+\item 
+\hyperlink{systick__stm32f411__config_8h_a82589cfda6cc55b21d80e5e3f47b69d9}{systick\+\_\+interrupt\+\_\+t} \hyperlink{structsystick__config__t_ae4174393003a47f219770a2e5793de45}{enable\+\_\+systick\+\_\+interrupt}
+\item 
+\hyperlink{systick__stm32f411__config_8h_a39469603d3120252cd4f82defbd9525e}{systick\+\_\+clock\+\_\+source\+\_\+t} \hyperlink{structsystick__config__t_a47a24c541e5d6123ec5825484d4f85f0}{clock\+\_\+source}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Struct containing relevant configuration data to enable the systick 
+
+\subsection{Field Documentation}
+\mbox{\Hypertarget{structsystick__config__t_a47a24c541e5d6123ec5825484d4f85f0}\label{structsystick__config__t_a47a24c541e5d6123ec5825484d4f85f0}} 
+\index{systick\+\_\+config\+\_\+t@{systick\+\_\+config\+\_\+t}!clock\+\_\+source@{clock\+\_\+source}}
+\index{clock\+\_\+source@{clock\+\_\+source}!systick\+\_\+config\+\_\+t@{systick\+\_\+config\+\_\+t}}
+\subsubsection{\texorpdfstring{clock\+\_\+source}{clock\_source}}
+{\footnotesize\ttfamily \hyperlink{systick__stm32f411__config_8h_a39469603d3120252cd4f82defbd9525e}{systick\+\_\+clock\+\_\+source\+\_\+t} clock\+\_\+source}
+
+The systick clock source. Recommended value is S\+Y\+S\+T\+I\+C\+K\+\_\+\+I\+N\+T\+E\+R\+N\+A\+L\+\_\+\+C\+L\+O\+CK \mbox{\Hypertarget{structsystick__config__t_a072e52389584956edd057c591c1c7cd8}\label{structsystick__config__t_a072e52389584956edd057c591c1c7cd8}} 
+\index{systick\+\_\+config\+\_\+t@{systick\+\_\+config\+\_\+t}!enable\+\_\+systick@{enable\+\_\+systick}}
+\index{enable\+\_\+systick@{enable\+\_\+systick}!systick\+\_\+config\+\_\+t@{systick\+\_\+config\+\_\+t}}
+\subsubsection{\texorpdfstring{enable\+\_\+systick}{enable\_systick}}
+{\footnotesize\ttfamily \hyperlink{systick__stm32f411__config_8h_a54abff3d12292257e357d04094ebc415}{systick\+\_\+enabled\+\_\+t} enable\+\_\+systick}
+
+Whether or not the systick should be enabled. Recommended value is S\+Y\+S\+T\+I\+C\+K\+\_\+\+E\+N\+A\+B\+L\+ED \mbox{\Hypertarget{structsystick__config__t_ae4174393003a47f219770a2e5793de45}\label{structsystick__config__t_ae4174393003a47f219770a2e5793de45}} 
+\index{systick\+\_\+config\+\_\+t@{systick\+\_\+config\+\_\+t}!enable\+\_\+systick\+\_\+interrupt@{enable\+\_\+systick\+\_\+interrupt}}
+\index{enable\+\_\+systick\+\_\+interrupt@{enable\+\_\+systick\+\_\+interrupt}!systick\+\_\+config\+\_\+t@{systick\+\_\+config\+\_\+t}}
+\subsubsection{\texorpdfstring{enable\+\_\+systick\+\_\+interrupt}{enable\_systick\_interrupt}}
+{\footnotesize\ttfamily \hyperlink{systick__stm32f411__config_8h_a82589cfda6cc55b21d80e5e3f47b69d9}{systick\+\_\+interrupt\+\_\+t} enable\+\_\+systick\+\_\+interrupt}
+
+Whether or not the systick interrupt should be enabled. Recommended value si S\+Y\+S\+T\+I\+C\+K\+\_\+\+I\+N\+T\+\_\+\+E\+N\+A\+B\+L\+ED. \mbox{\Hypertarget{structsystick__config__t_a5d1767c41ce5e869439e7197fd6a7373}\label{structsystick__config__t_a5d1767c41ce5e869439e7197fd6a7373}} 
+\index{systick\+\_\+config\+\_\+t@{systick\+\_\+config\+\_\+t}!tick\+\_\+freq\+\_\+khz@{tick\+\_\+freq\+\_\+khz}}
+\index{tick\+\_\+freq\+\_\+khz@{tick\+\_\+freq\+\_\+khz}!systick\+\_\+config\+\_\+t@{systick\+\_\+config\+\_\+t}}
+\subsubsection{\texorpdfstring{tick\+\_\+freq\+\_\+khz}{tick\_freq\_khz}}
+{\footnotesize\ttfamily uint32\+\_\+t tick\+\_\+freq\+\_\+khz}
+
+How quickly the systick should trigger in k\+Hz. Recommended value is 1 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/marko/\+Documents/embedded\+\_\+workspace/systick\+\_\+driver/\hyperlink{systick__stm32f411__config_8h}{systick\+\_\+stm32f411\+\_\+config.\+h}\end{DoxyCompactItemize}

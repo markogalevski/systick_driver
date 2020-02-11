@@ -1,0 +1,104 @@
+\hypertarget{systick__stm32f411__config_8h}{}\section{/home/marko/\+Documents/embedded\+\_\+workspace/systick\+\_\+driver/systick\+\_\+stm32f411\+\_\+config.h File Reference}
+\label{systick__stm32f411__config_8h}\index{/home/marko/\+Documents/embedded\+\_\+workspace/systick\+\_\+driver/systick\+\_\+stm32f411\+\_\+config.\+h@{/home/marko/\+Documents/embedded\+\_\+workspace/systick\+\_\+driver/systick\+\_\+stm32f411\+\_\+config.\+h}}
+
+
+Chip specific header containing all relevant enums and structs to configure the systick.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for systick\+\_\+stm32f411\+\_\+config.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{systick__stm32f411__config_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{systick__stm32f411__config_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structsystick__config__t}{systick\+\_\+config\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{systick__stm32f411__config_8h_a13339cd298c9dda78016a52890c456f4}\label{systick__stm32f411__config_8h_a13339cd298c9dda78016a52890c456f4}} 
+enum {\bfseries systick\+\_\+t} \{ {\bfseries S\+Y\+S\+T\+I\+C\+K\+\_\+1}, 
+{\bfseries N\+U\+M\+\_\+\+S\+Y\+S\+T\+I\+C\+KS}
+ \}
+\item 
+enum \hyperlink{systick__stm32f411__config_8h_a54abff3d12292257e357d04094ebc415}{systick\+\_\+enabled\+\_\+t} \{ {\bfseries S\+Y\+S\+T\+I\+C\+K\+\_\+\+D\+I\+S\+A\+B\+L\+ED}, 
+{\bfseries S\+Y\+S\+T\+I\+C\+K\+\_\+\+E\+N\+A\+B\+L\+ED}
+ \}
+\item 
+enum \hyperlink{systick__stm32f411__config_8h_a82589cfda6cc55b21d80e5e3f47b69d9}{systick\+\_\+interrupt\+\_\+t} \{ {\bfseries S\+Y\+S\+T\+I\+C\+K\+\_\+\+I\+N\+T\+\_\+\+D\+I\+S\+A\+B\+L\+ED}, 
+{\bfseries S\+Y\+S\+T\+I\+C\+K\+\_\+\+I\+N\+T\+\_\+\+E\+N\+A\+B\+L\+ED}
+ \}
+\item 
+enum \hyperlink{systick__stm32f411__config_8h_a39469603d3120252cd4f82defbd9525e}{systick\+\_\+clock\+\_\+source\+\_\+t} \{ {\bfseries S\+Y\+S\+T\+I\+C\+K\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+C\+L\+O\+CK}, 
+{\bfseries S\+Y\+S\+T\+I\+C\+K\+\_\+\+I\+N\+T\+E\+R\+N\+A\+L\+\_\+\+C\+L\+O\+CK}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{structsystick__config__t}{systick\+\_\+config\+\_\+t} $\ast$ \hyperlink{systick__stm32f411__config_8h_a736aba702662d732de33f92b1fef7ad0}{systick\+\_\+config\+\_\+get} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \hyperlink{systick__stm32f411__config_8h_aa3cd3e43291e81e795d642b79b6088e6}{System\+Core\+Clock}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Chip specific header containing all relevant enums and structs to configure the systick. 
+
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{systick__stm32f411__config_8h_a39469603d3120252cd4f82defbd9525e}\label{systick__stm32f411__config_8h_a39469603d3120252cd4f82defbd9525e}} 
+\index{systick\+\_\+stm32f411\+\_\+config.\+h@{systick\+\_\+stm32f411\+\_\+config.\+h}!systick\+\_\+clock\+\_\+source\+\_\+t@{systick\+\_\+clock\+\_\+source\+\_\+t}}
+\index{systick\+\_\+clock\+\_\+source\+\_\+t@{systick\+\_\+clock\+\_\+source\+\_\+t}!systick\+\_\+stm32f411\+\_\+config.\+h@{systick\+\_\+stm32f411\+\_\+config.\+h}}
+\subsubsection{\texorpdfstring{systick\+\_\+clock\+\_\+source\+\_\+t}{systick\_clock\_source\_t}}
+{\footnotesize\ttfamily enum \hyperlink{systick__stm32f411__config_8h_a39469603d3120252cd4f82defbd9525e}{systick\+\_\+clock\+\_\+source\+\_\+t}}
+
+Options for where the systick gets its clock. Internal clock is the default. \mbox{\Hypertarget{systick__stm32f411__config_8h_a54abff3d12292257e357d04094ebc415}\label{systick__stm32f411__config_8h_a54abff3d12292257e357d04094ebc415}} 
+\index{systick\+\_\+stm32f411\+\_\+config.\+h@{systick\+\_\+stm32f411\+\_\+config.\+h}!systick\+\_\+enabled\+\_\+t@{systick\+\_\+enabled\+\_\+t}}
+\index{systick\+\_\+enabled\+\_\+t@{systick\+\_\+enabled\+\_\+t}!systick\+\_\+stm32f411\+\_\+config.\+h@{systick\+\_\+stm32f411\+\_\+config.\+h}}
+\subsubsection{\texorpdfstring{systick\+\_\+enabled\+\_\+t}{systick\_enabled\_t}}
+{\footnotesize\ttfamily enum \hyperlink{systick__stm32f411__config_8h_a54abff3d12292257e357d04094ebc415}{systick\+\_\+enabled\+\_\+t}}
+
+Contains options to enable or disable the systick. Note that a disabled systick will disable timeout features for all communication buses \mbox{\Hypertarget{systick__stm32f411__config_8h_a82589cfda6cc55b21d80e5e3f47b69d9}\label{systick__stm32f411__config_8h_a82589cfda6cc55b21d80e5e3f47b69d9}} 
+\index{systick\+\_\+stm32f411\+\_\+config.\+h@{systick\+\_\+stm32f411\+\_\+config.\+h}!systick\+\_\+interrupt\+\_\+t@{systick\+\_\+interrupt\+\_\+t}}
+\index{systick\+\_\+interrupt\+\_\+t@{systick\+\_\+interrupt\+\_\+t}!systick\+\_\+stm32f411\+\_\+config.\+h@{systick\+\_\+stm32f411\+\_\+config.\+h}}
+\subsubsection{\texorpdfstring{systick\+\_\+interrupt\+\_\+t}{systick\_interrupt\_t}}
+{\footnotesize\ttfamily enum \hyperlink{systick__stm32f411__config_8h_a82589cfda6cc55b21d80e5e3f47b69d9}{systick\+\_\+interrupt\+\_\+t}}
+
+Enables or disables the systick interrupt. The systick should be enabled to allow updating of the source-\/file scoped timer variable every x ms. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{systick__stm32f411__config_8h_a736aba702662d732de33f92b1fef7ad0}\label{systick__stm32f411__config_8h_a736aba702662d732de33f92b1fef7ad0}} 
+\index{systick\+\_\+stm32f411\+\_\+config.\+h@{systick\+\_\+stm32f411\+\_\+config.\+h}!systick\+\_\+config\+\_\+get@{systick\+\_\+config\+\_\+get}}
+\index{systick\+\_\+config\+\_\+get@{systick\+\_\+config\+\_\+get}!systick\+\_\+stm32f411\+\_\+config.\+h@{systick\+\_\+stm32f411\+\_\+config.\+h}}
+\subsubsection{\texorpdfstring{systick\+\_\+config\+\_\+get()}{systick\_config\_get()}}
+{\footnotesize\ttfamily const \hyperlink{structsystick__config__t}{systick\+\_\+config\+\_\+t}$\ast$ systick\+\_\+config\+\_\+get (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Function returning a pointer to the (quite protected) config data 
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{systick__stm32f411__config_8h_aa3cd3e43291e81e795d642b79b6088e6}\label{systick__stm32f411__config_8h_aa3cd3e43291e81e795d642b79b6088e6}} 
+\index{systick\+\_\+stm32f411\+\_\+config.\+h@{systick\+\_\+stm32f411\+\_\+config.\+h}!System\+Core\+Clock@{System\+Core\+Clock}}
+\index{System\+Core\+Clock@{System\+Core\+Clock}!systick\+\_\+stm32f411\+\_\+config.\+h@{systick\+\_\+stm32f411\+\_\+config.\+h}}
+\subsubsection{\texorpdfstring{System\+Core\+Clock}{SystemCoreClock}}
+{\footnotesize\ttfamily uint32\+\_\+t System\+Core\+Clock}
+
+Core clock frequency as defined in system\+\_\+stm32f4xx.\+c by S\+TM 

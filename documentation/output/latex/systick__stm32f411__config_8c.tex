@@ -1,0 +1,58 @@
+\hypertarget{systick__stm32f411__config_8c}{}\section{/home/marko/\+Documents/embedded\+\_\+workspace/systick\+\_\+driver/systick\+\_\+stm32f411\+\_\+config.c File Reference}
+\label{systick__stm32f411__config_8c}\index{/home/marko/\+Documents/embedded\+\_\+workspace/systick\+\_\+driver/systick\+\_\+stm32f411\+\_\+config.\+c@{/home/marko/\+Documents/embedded\+\_\+workspace/systick\+\_\+driver/systick\+\_\+stm32f411\+\_\+config.\+c}}
+
+
+Contains the configuration information for the systick.  
+
+
+{\ttfamily \#include \char`\"{}systick\+\_\+stm32f411\+\_\+config.\+h\char`\"{}}\newline
+Include dependency graph for systick\+\_\+stm32f411\+\_\+config.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{systick__stm32f411__config_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{structsystick__config__t}{systick\+\_\+config\+\_\+t} $\ast$ \hyperlink{systick__stm32f411__config_8c_a736aba702662d732de33f92b1fef7ad0}{systick\+\_\+config\+\_\+get} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const \hyperlink{structsystick__config__t}{systick\+\_\+config\+\_\+t} \hyperlink{systick__stm32f411__config_8c_a9a1607434b9bc6fc26d7796141f02069}{systick\+\_\+config\+\_\+table} \mbox{[}N\+U\+M\+\_\+\+S\+Y\+S\+T\+I\+C\+KS\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Contains the configuration information for the systick. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{systick__stm32f411__config_8c_a736aba702662d732de33f92b1fef7ad0}\label{systick__stm32f411__config_8c_a736aba702662d732de33f92b1fef7ad0}} 
+\index{systick\+\_\+stm32f411\+\_\+config.\+c@{systick\+\_\+stm32f411\+\_\+config.\+c}!systick\+\_\+config\+\_\+get@{systick\+\_\+config\+\_\+get}}
+\index{systick\+\_\+config\+\_\+get@{systick\+\_\+config\+\_\+get}!systick\+\_\+stm32f411\+\_\+config.\+c@{systick\+\_\+stm32f411\+\_\+config.\+c}}
+\subsubsection{\texorpdfstring{systick\+\_\+config\+\_\+get()}{systick\_config\_get()}}
+{\footnotesize\ttfamily const \hyperlink{structsystick__config__t}{systick\+\_\+config\+\_\+t}$\ast$ systick\+\_\+config\+\_\+get (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Function returning a pointer to the (quite protected) config data 
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{systick__stm32f411__config_8c_a9a1607434b9bc6fc26d7796141f02069}\label{systick__stm32f411__config_8c_a9a1607434b9bc6fc26d7796141f02069}} 
+\index{systick\+\_\+stm32f411\+\_\+config.\+c@{systick\+\_\+stm32f411\+\_\+config.\+c}!systick\+\_\+config\+\_\+table@{systick\+\_\+config\+\_\+table}}
+\index{systick\+\_\+config\+\_\+table@{systick\+\_\+config\+\_\+table}!systick\+\_\+stm32f411\+\_\+config.\+c@{systick\+\_\+stm32f411\+\_\+config.\+c}}
+\subsubsection{\texorpdfstring{systick\+\_\+config\+\_\+table}{systick\_config\_table}}
+{\footnotesize\ttfamily const \hyperlink{structsystick__config__t}{systick\+\_\+config\+\_\+t} systick\+\_\+config\+\_\+table\mbox{[}N\+U\+M\+\_\+\+S\+Y\+S\+T\+I\+C\+KS\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+\{   
+                                            
+        \{SYSTICK\_ENABLED,    1,         SYSTICK\_INT\_ENABLED,    SYSTICK\_INTERNAL\_CLOCK\}
+\}
+\end{DoxyCode}
+Table containing config information for the configuration of the systick. Populated at first with default values 

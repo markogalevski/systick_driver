@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['systick_20driver',['Systick Driver',['../md__home_marko__documents_embedded_workspace_systick_driver__r_e_a_d_m_e.html',1,'']]]
+  ['clock_5fsource',['clock_source',['../structsystick__config__t.html#a47a24c541e5d6123ec5825484d4f85f0',1,'systick_config_t']]]
 ];

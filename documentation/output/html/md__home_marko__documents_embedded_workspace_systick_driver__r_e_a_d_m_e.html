@@ -84,7 +84,9 @@ $(document).ready(function(){initNavTree('md__home_marko__documents_embedded_wor
 <div class="title">Systick Driver </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>A general wrapper around systick and systick-like features to allow for general timekeeping and timeout functionality to other elements of the hal </p>
+<div class="textblock"><p>A general wrapper around systick and systick-like features to allow for general timekeeping and timeout functionality to other elements of the HAL.</p>
+<h2>Note:</h2>
+<p>The systick and sysclock elements of the HAL are some of the most difficult to use and test, and are generally wrappers around MCU vendor created functions, or reimplementations thereof with more freedom (but <b>STRONG</b> recommendations). If you have ANY doubts about my implementations or experience issues, redirect the interface targets to HALs created by the vendors. </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

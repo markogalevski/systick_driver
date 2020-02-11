@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['mode',['mode',['../structgpio__config__t.html#a23aeec8098631547d58a797b2ad857c1',1,'gpio_config_t']]],
-  ['mux',['mux',['../structgpio__config__t.html#a517a0cd4125fcd45504b02d3c4a35d06',1,'gpio_config_t']]]
+  ['enable_5fsystick',['enable_systick',['../structsystick__config__t.html#a072e52389584956edd057c591c1c7cd8',1,'systick_config_t']]],
+  ['enable_5fsystick_5finterrupt',['enable_systick_interrupt',['../structsystick__config__t.html#ae4174393003a47f219770a2e5793de45',1,'systick_config_t']]]
 ];

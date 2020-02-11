@@ -1,4 +1,4 @@
 var annotated_dup =
 [
-    [ "gpio_config_t", "structgpio__config__t.html", "structgpio__config__t" ]
+    [ "systick_config_t", "structsystick__config__t.html", "structsystick__config__t" ]
 ];
