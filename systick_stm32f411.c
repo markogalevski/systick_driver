@@ -216,7 +216,6 @@ void systick_pause(void)
 *
 *	PRE-CONDITION: None
 *
-*
 *	POST-CONDITION: The systick timer is running
 *
 *	@return 	void
@@ -497,5 +496,5 @@ void systick_callback_register(systick_callback_t callback_func)
 void systick_irq_handler(void)
 {
 	assert(systick_callback != NULL);
-	systick_callback();
+	(*systick_callback)();
 }
